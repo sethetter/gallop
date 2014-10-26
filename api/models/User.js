@@ -21,7 +21,14 @@ module.exports = {
       type: 'string',
       required: true,
       minLength: 8
+    },
+
+    toJSON: function() {
+      var user = this.toObject();
+      delete user.password;
+      return user;
     }
+
   },
 
   beforeValidate: function(values, next) {
